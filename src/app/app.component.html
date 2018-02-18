@@ -1,0 +1,15 @@
+ <div class="outer-container"> 
+  <div class="form-container">
+    <form (ngSubmit)="handleSubmit(pixels.value)" #converterForm="ngForm">
+      <div class="form-group">
+        <label>Pixels</label>
+        <input #pixels (keyup.enter)="handleSubmit(pixels.value)" type="text" name="pixels">
+      </div>
+      <button type="submit">Calculate</button>
+    </form>
+  </div>
+
+  <div>
+    {{remValue}} REM
+  </div>
+</div>
