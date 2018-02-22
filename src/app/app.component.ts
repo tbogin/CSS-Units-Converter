@@ -23,16 +23,29 @@ export class AppComponent {
 
   remValue: number;
   pxValue: number;
+  selectedValue = 'Pixels';
+  formSubmitted: boolean = false;
 
-  handleSubmit(pixels : number) {
-    return this.pixToREM(pixels);    
-  };
+  measurement: string[] = ["Pixels", "REM"];
 
-  remToPx() {
-
+  handleSelect(unit: string) {
+    this.formSubmitted = false;
+    this.selectedValue = unit;
   }
+
+  handleSubmit(unit : number) {
+    this.formSubmitted = true;
+    this.selectedValue === 'Pixels' ?
+      this.pixToREM(unit) : this.remToPx(unit) + ' px';    
+  }
+
+  remToPx(rem: number, basePx = 26) {
+    this.pxValue = (rem * basePx);
+    return this.pxValue;
+  }
+
   pixToREM(pixels : number, basePx = 16) {
     this.remValue = (pixels / basePx);
-    return this.remValue;
+    // return this.remValue;
   }
 }
