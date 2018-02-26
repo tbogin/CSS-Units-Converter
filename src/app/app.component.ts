@@ -41,7 +41,7 @@ export class AppComponent {
 
   remToPx(rem: number, basePx = 26) {
     this.pxValue = (rem * basePx);
-    return this.pxValue;
+    // return this.pxValue;
   }
 
   pixToREM(pixels : number, basePx = 16) {

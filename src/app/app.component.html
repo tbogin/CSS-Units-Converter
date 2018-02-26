@@ -2,7 +2,9 @@
   <div class="form-container">
     <div class="select-group">
       <label for="unit">Measurement Unit</label>
-      <select (change)="handleSelect($event.target.value)" required>
+      <select 
+        (change)="handleSelect($event.target.value)" 
+        required>
         <option 
           *ngFor="let unit of measurement" 
           [selected]="unit === 'Pixels'" 
@@ -11,7 +13,10 @@
         </option>
       </select>
     </div>
-    <form *ngIf="selectedValue === 'Pixels'" (ngSubmit)="handleSubmit(pixels.value)" #pxConverterForm="ngForm">
+    <form 
+      *ngIf="selectedValue === 'Pixels'" 
+      (ngSubmit)="handleSubmit(pixels.value)" 
+      #pxConverterForm="ngForm">
       <div class="form-group">
         <label>Pixels</label>
         <input #pixels (keyup.enter)="handleSubmit(pixels.value)" type="text" name="pixels">
@@ -19,7 +24,10 @@
       <button type="submit" class="submit-btn">Calculate</button>
     </form>
 
-    <form *ngIf="selectedValue === 'REM'" (ngSubmit)="handleSubmit(rem.value)" #remConverterForm="ngForm">
+    <form 
+      *ngIf="selectedValue === 'REM'" 
+      (ngSubmit)="handleSubmit(rem.value)" 
+      #remConverterForm="ngForm">
       <div class="form-group">
         <label>REM</label>
         <input #rem (keyup.enter)="handleSubmit(rem.value)" type="text" name="pixels">
